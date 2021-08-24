@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "Products"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 5
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 5
+    },
+    "price": {
+      "type": "biginteger",
+      "default": "150000"
+    },
+    "freeShip": {
+      "type": "boolean",
+      "default": false
+    },
+    "sale": {
+      "type": "boolean",
+      "default": false
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "des": {
+      "type": "text",
+      "default": "Vui Lòng Xem Đúng Mặt Hàng Khi mua"
+    },
+    "categoryid": {
+      "via": "productsids",
+      "model": "category"
+    },
+    "productids": {
+      "via": "productid",
+      "collection": "cart-product"
+    }
+  }
+}

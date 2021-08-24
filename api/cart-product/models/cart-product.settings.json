@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cart_products",
+  "info": {
+    "name": "cart_product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "productid": {
+      "model": "products",
+      "via": "productids"
+    },
+    "quanlity": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "userid": {
+      "via": "userids",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}
